@@ -1,0 +1,391 @@
+{
+  "entity_types": {
+    "FOOD_INGREDIENT": {
+      "description": "Food ingredients, additives, and compounds used in food manufacturing",
+      "examples": [
+        "sodium benzoate", "potassium sorbate", "xanthan gum", "lecithin", "citric acid",
+        "ascorbic acid", "tocopherol", "carrageenan", "pectin", "maltodextrin",
+        "monosodium glutamate", "aspartame", "sucralose", "stevia extract", "vanillin",
+        "beta-carotene", "lycopene", "curcumin", "annatto", "spirulina extract"
+      ],
+      "patterns": [
+        "(?i)\\b(?:sodium|potassium|calcium)\\s+(?:benzoate|sorbate|citrate|phosphate|chloride)\\b",
+        "(?i)\\b(?:xanthan|guar|locust bean|konjac)\\s+gum\\b",
+        "(?i)\\b(?:lecithin|carrageenan|pectin|agar|gellan|algin)\\b",
+        "(?i)\\b(?:maltodextrin|dextrose|fructose|lactose|trehalose)\\b",
+        "(?i)\\b(?:ascorbic|citric|lactic|acetic|malic|tartaric)\\s+acid\\b",
+        "(?i)\\b(?:beta-carotene|lycopene|curcumin|annatto|chlorophyll)\\b"
+      ]
+    },
+    "FOOD_ADDITIVE_TYPE": {
+      "description": "Types and categories of food additives",
+      "examples": [
+        "preservative", "antioxidant", "emulsifier", "stabilizer", "thickener",
+        "flavor enhancer", "colorant", "sweetener", "anti-caking agent", "binding agent",
+        "pH adjuster", "firming agent", "foaming agent", "glazing agent", "bulking agent",
+        "humectant", "sequestrant", "enzyme", "flour treatment agent", "releasing agent"
+      ],
+      "patterns": [
+        "(?i)\\b(?:preservative|antioxidant|emulsifier|stabilizer|thickener)\\b",
+        "(?i)\\b(?:flavor\\s+enhancer|colorant|sweetener|binding\\s+agent)\\b",
+        "(?i)\\b(?:anti-caking|firming|foaming|glazing|bulking)\\s+agent\\b",
+        "(?i)\\b(?:humectant|sequestrant|enzyme|releasing\\s+agent)\\b"
+      ]
+    },
+    "FOOD_APPLICATION": {
+      "description": "Food applications and product categories",
+      "examples": [
+        "dairy products", "bakery goods", "beverages", "meat processing", "confectionery",
+        "sauces and dressings", "frozen foods", "canned foods", "snack foods",
+        "infant formula", "dietary supplements", "functional foods", "ready meals",
+        "pet food", "sports nutrition", "meal replacement", "plant-based alternatives"
+      ],
+      "patterns": [
+        "(?i)\\b(?:dairy|bakery|beverage|meat|confectionery)\\s+(?:products?|goods?|processing)\\b",
+        "(?i)\\b(?:frozen|canned|snack|convenience)\\s+foods?\\b",
+        "(?i)\\b(?:infant\\s+formula|dietary\\s+supplements|functional\\s+foods)\\b",
+        "(?i)\\b(?:pet\\s+food|sports\\s+nutrition|meal\\s+replacement)\\b"
+      ]
+    },
+    "FOOD_SAFETY_STANDARD": {
+      "description": "Food safety and regulatory standards",
+      "examples": [
+        "GRAS status", "FDA approved", "EFSA approved", "E-number", "INS number",
+        "HACCP", "BRC", "SQF", "IFS", "FSSC 22000", "Kosher certified", "Halal certified",
+        "Organic certified", "Non-GMO verified", "Food grade", "USP grade", "EP grade",
+        "Global Food Safety Initiative", "ISO 22000", "FDA HARPC", "FSIS approved"
+      ],
+      "patterns": [
+        "(?i)\\bGRAS\\s+(?:status|approved)\\b",
+        "(?i)\\b(?:FDA|EFSA|FSIS)\\s+approved\\b",
+        "(?i)\\bE\\d{3,4}\\b",
+        "(?i)\\bINS\\s+\\d{3,4}\\b",
+        "(?i)\\b(?:HACCP|BRC|SQF|IFS|FSSC|GFSI)\\b",
+        "(?i)\\b(?:Kosher|Halal|Organic|Non-GMO)\\s+(?:certified|verified)\\b",
+        "(?i)\\b(?:USP|EP|Food)\\s+grade\\b"
+      ]
+    },
+    "NUTRITIONAL_COMPONENT": {
+      "description": "Nutritional components and functional ingredients",
+      "examples": [
+        "vitamin A", "vitamin C", "vitamin D", "vitamin E", "thiamine", "riboflavin",
+        "niacin", "folate", "calcium", "iron", "omega-3", "probiotics", "prebiotics",
+        "protein", "fiber", "antioxidants", "polyphenols", "carotenoids", "flavonoids",
+        "amino acids", "peptides", "coenzyme Q10", "glucosamine", "chondroitin"
+      ],
+      "patterns": [
+        "(?i)\\bvitamin\\s+[A-K]\\d*\\b",
+        "(?i)\\b(?:thiamine|riboflavin|niacin|folate|biotin|pantothenic)\\b",
+        "(?i)\\b(?:omega-3|omega-6|DHA|EPA|ALA)\\b",
+        "(?i)\\b(?:probiotics|prebiotics|antioxidants|polyphenols|flavonoids)\\b",
+        "(?i)\\b(?:amino\\s+acids|peptides|coenzyme|glucosamine|chondroitin)\\b"
+      ]
+    },
+    "FOOD_PROCESSING_METHOD": {
+      "description": "Food processing and manufacturing methods",
+      "examples": [
+        "spray drying", "freeze drying", "fermentation", "extraction", "distillation",
+        "encapsulation", "microencapsulation", "homogenization", "pasteurization",
+        "sterilization", "ultrafiltration", "reverse osmosis", "crystallization",
+        "extrusion", "high pressure processing", "pulsed electric field", "ultrasound",
+        "membrane filtration", "supercritical extraction", "cold pressing"
+      ],
+      "patterns": [
+        "(?i)\\b(?:spray|freeze)\\s+drying\\b",
+        "(?i)\\b(?:fermentation|extraction|distillation|extrusion)\\b",
+        "(?i)\\b(?:micro)?encapsulation\\b",
+        "(?i)\\b(?:pasteurization|sterilization|homogenization)\\b",
+        "(?i)\\b(?:high\\s+pressure|pulsed\\s+electric|supercritical)\\s+(?:processing|extraction)\\b",
+        "(?i)\\b(?:membrane\\s+filtration|cold\\s+pressing|ultrasound\\s+processing)\\b"
+      ]
+    },
+    "FOOD_STORAGE_CONDITION": {
+      "description": "Storage conditions specific to food ingredients",
+      "examples": [
+        "refrigerated storage", "frozen storage", "dry storage", "controlled atmosphere",
+        "light-protected", "moisture-protected", "nitrogen-flushed", "vacuum-packed",
+        "food grade packaging", "temperature controlled", "humidity controlled",
+        "inert atmosphere", "desiccant packaging", "modified atmosphere packaging"
+      ],
+      "patterns": [
+        "(?i)\\b(?:refrigerated|frozen|dry|ambient)\\s+storage\\b",
+        "(?i)\\b(?:light|moisture|oxygen)-protected\\b",
+        "(?i)\\b(?:nitrogen-flushed|vacuum-packed|inert\\s+atmosphere)\\b",
+        "(?i)\\bfood\\s+grade\\s+packaging\\b",
+        "(?i)\\b(?:modified|controlled)\\s+atmosphere\\b"
+      ]
+    },
+    "ALLERGEN_INFO": {
+      "description": "Allergen information and declarations",
+      "examples": [
+        "contains milk", "contains eggs", "contains wheat", "contains soy", "contains nuts",
+        "contains fish", "contains shellfish", "contains sesame", "gluten-free", "dairy-free", 
+        "nut-free", "allergen-free", "may contain traces", "processed in facility",
+        "cross-contamination", "dedicated facility", "allergen control program"
+      ],
+      "patterns": [
+        "(?i)\\bcontains\\s+(?:milk|eggs|wheat|soy|nuts|fish|shellfish|sesame)\\b",
+        "(?i)\\b(?:gluten|dairy|nut|egg|soy|fish)-free\\b",
+        "(?i)\\bmay\\s+contain\\s+(?:traces|allergens)\\b",
+        "(?i)\\bprocessed\\s+in\\s+facility\\b",
+        "(?i)\\b(?:cross-contamination|dedicated\\s+facility|allergen\\s+control)\\b"
+      ]
+    },
+    "RECIPE_COMPONENT": {
+      "description": "Recipe and formulation components",
+      "examples": [
+        "main ingredient", "minor ingredient", "processing aid", "flavor system",
+        "base formulation", "premix", "concentrate", "recipe optimization",
+        "ingredient ratio", "batch formula", "master recipe", "standard recipe"
+      ],
+      "patterns": [
+        "(?i)\\b(?:main|minor|key|active)\\s+ingredient\\b",
+        "(?i)\\b(?:processing\\s+aid|flavor\\s+system|base\\s+formulation)\\b",
+        "(?i)\\b(?:premix|concentrate|recipe\\s+optimization)\\b",
+        "(?i)\\b(?:ingredient\\s+ratio|batch\\s+formula|master\\s+recipe)\\b"
+      ]
+    },
+    "INDUSTRIAL_PROCESS_STEP": {
+      "description": "Industrial process steps and operations",
+      "examples": [
+        "mixing", "blending", "heating", "cooling", "packaging", "quality control",
+        "raw material receiving", "ingredient weighing", "process monitoring",
+        "final inspection", "batch recording", "cleaning validation", "line changeover"
+      ],
+      "patterns": [
+        "(?i)\\b(?:mixing|blending|heating|cooling|packaging)\\b",
+        "(?i)\\b(?:quality\\s+control|raw\\s+material\\s+receiving)\\b",
+        "(?i)\\b(?:ingredient\\s+weighing|process\\s+monitoring)\\b",
+        "(?i)\\b(?:final\\s+inspection|batch\\s+recording|cleaning\\s+validation)\\b"
+      ]
+    },
+    "FLOW_CHART_ELEMENT": {
+      "description": "Flow chart and process diagram elements",
+      "examples": [
+        "start point", "end point", "decision point", "process step", "input",
+        "output", "quality check", "critical control point", "hazard analysis",
+        "flow direction", "process branch", "alternative path", "feedback loop"
+      ],
+      "patterns": [
+        "(?i)\\b(?:start|end|decision)\\s+point\\b",
+        "(?i)\\b(?:process\\s+step|quality\\s+check)\\b",
+        "(?i)\\b(?:critical\\s+control\\s+point|hazard\\s+analysis)\\b",
+        "(?i)\\b(?:flow\\s+direction|process\\s+branch|feedback\\s+loop)\\b"
+      ]
+    }
+  },
+  "relationship_types": {
+    "USED_IN_FOOD": {
+      "description": "Ingredient used in specific food application",
+      "patterns": ["used\\s+in", "added\\s+to", "incorporated\\s+in", "applied\\s+to", "formulated\\s+in"]
+    },
+    "HAS_FUNCTION": {
+      "description": "Ingredient has specific function in food",
+      "patterns": ["functions\\s+as", "acts\\s+as", "serves\\s+as", "provides", "performs\\s+as"]
+    },
+    "APPROVED_FOR": {
+      "description": "Ingredient approved for specific use",
+      "patterns": ["approved\\s+for", "permitted\\s+in", "allowed\\s+in", "GRAS\\s+for", "certified\\s+for"]
+    },
+    "CONTAINS_ALLERGEN": {
+      "description": "Product contains specific allergen",
+      "patterns": ["contains", "source\\s+of", "derived\\s+from", "may\\s+contain", "includes"]
+    },
+    "REPLACES_INGREDIENT": {
+      "description": "Ingredient serves as replacement for another",
+      "patterns": ["replaces", "substitute\\s+for", "alternative\\s+to", "instead\\s+of", "can\\s+replace"]
+    },
+    "ENHANCES_PROPERTY": {
+      "description": "Ingredient enhances specific food property",
+      "patterns": ["enhances", "improves", "increases", "stabilizes", "extends", "optimizes"]
+    },
+    "PROCESS_FOLLOWS": {
+      "description": "Process step follows another in sequence",
+      "patterns": ["followed\\s+by", "then", "next\\s+step", "subsequently", "after"]
+    },
+    "PRECEDES_STEP": {
+      "description": "Process step precedes another",
+      "patterns": ["before", "prior\\s+to", "precedes", "leads\\s+to", "followed\\s+by"]
+    },
+    "CONTROLS_PROCESS": {
+      "description": "Parameter controls process step",
+      "patterns": ["controls", "regulates", "monitors", "manages", "governs"]
+    },
+    "RECIPE_INCLUDES": {
+      "description": "Recipe includes specific ingredient",
+      "patterns": ["includes", "contains", "requires", "specifies", "calls\\s+for"]
+    }
+  },
+  "document_types": {
+    "FOOD_SDS": {
+      "description": "Food Safety Data Sheets",
+      "indicators": ["safety data sheet", "sds", "msds", "hazard", "precautions"]
+    },
+    "INGREDIENT_SPEC": {
+      "description": "Ingredient specifications and technical datasheets",
+      "indicators": ["specification", "technical data", "ingredient profile", "product information"]
+    },
+    "NUTRITIONAL_INFO": {
+      "description": "Nutritional information and facts",
+      "indicators": ["nutrition facts", "nutritional information", "dietary data", "vitamin content"]
+    },
+    "COA": {
+      "description": "Certificate of Analysis",
+      "indicators": ["certificate of analysis", "coa", "analytical results", "test results"]
+    },
+    "ALLERGEN_DECLARATION": {
+      "description": "Allergen declarations and statements",
+      "indicators": ["allergen", "contains", "may contain", "allergen statement"]
+    },
+    "REGULATORY_COMPLIANCE": {
+      "description": "Regulatory compliance documents",
+      "indicators": ["compliance", "regulation", "approved", "certified", "gras"]
+    },
+    "RECIPE_FORMULATION": {
+      "description": "Recipes and product formulations",
+      "indicators": ["recipe", "formulation", "formula", "ingredient list", "batch sheet"]
+    },
+    "INDUSTRIAL_PROCESS": {
+      "description": "Industrial process documentation",
+      "indicators": ["process", "manufacturing", "production", "operations", "procedure"]
+    },
+    "FLOW_CHART": {
+      "description": "Process flow charts and diagrams",
+      "indicators": ["flow chart", "process flow", "diagram", "workflow", "process map"]
+    },
+    "MANUFACTURING_RECORDS": {
+      "description": "Manufacturing and production records",
+      "indicators": ["batch record", "production log", "manufacturing record", "process log"]
+    }
+  },
+  "food_categories": {
+    "beverages": ["soft drinks", "juices", "sports drinks", "energy drinks", "alcoholic beverages", "functional beverages", "plant-based drinks"],
+    "dairy": ["milk", "cheese", "yogurt", "butter", "ice cream", "cream", "dairy alternatives", "fermented dairy"],
+    "bakery": ["bread", "cakes", "cookies", "pastries", "crackers", "biscuits", "gluten-free baked goods"],
+    "meat_poultry": ["processed meat", "sausages", "deli meat", "poultry products", "plant-based meat alternatives"],
+    "confectionery": ["candy", "chocolate", "gum", "mints", "sugar confections", "sugar-free confections"],
+    "snacks": ["chips", "nuts", "crackers", "bars", "pretzels", "healthy snacks", "protein snacks"],
+    "sauces_dressings": ["ketchup", "mayonnaise", "salad dressing", "marinades", "cooking sauces", "condiments"],
+    "prepared_foods": ["soups", "ready meals", "frozen dinners", "canned foods", "meal kits", "convenience foods"],
+    "supplements": ["vitamins", "minerals", "protein powders", "herbal supplements", "functional ingredients"],
+    "infant_nutrition": ["infant formula", "baby food", "toddler foods", "nutritional supplements"],
+    "pet_food": ["dog food", "cat food", "treats", "specialized pet nutrition"],
+    "functional_foods": ["probiotics", "prebiotics", "fortified foods", "nutraceuticals"]
+  },
+  "regulatory_frameworks": {
+    "FDA": {
+      "description": "US Food and Drug Administration",
+      "standards": ["GRAS", "Food Additive Petition", "Color Additive", "NLEA", "HARPC", "FSMA"],
+      "codes": ["21 CFR", "FDA Guidance"]
+    },
+    "EFSA": {
+      "description": "European Food Safety Authority",
+      "standards": ["E-numbers", "Novel Food", "Health Claims", "Nutrition Claims", "QPS"],
+      "codes": ["EU Regulation", "Commission Regulation"]
+    },
+    "JECFA": {
+      "description": "Joint FAO/WHO Expert Committee on Food Additives",
+      "standards": ["ADI", "PTWI", "PMTDI", "Safety Assessment", "Specifications"],
+      "codes": ["FAO/WHO standards"]
+    },
+    "CODEX": {
+      "description": "Codex Alimentarius Commission",
+      "standards": ["INS numbers", "Food Standards", "Labeling Guidelines", "HACCP"],
+      "codes": ["CODEX STAN", "CAC/GL"]
+    },
+    "USDA": {
+      "description": "US Department of Agriculture",
+      "standards": ["Organic", "FSIS", "GIPSA", "AMS"],
+      "codes": ["7 CFR", "9 CFR"]
+    },
+    "Health_Canada": {
+      "description": "Health Canada Food Directorate",
+      "standards": ["Food Additive", "Natural Health Products", "Nutrition Labelling"],
+      "codes": ["FDR", "NHPR"]
+    },
+    "FSANZ": {
+      "description": "Food Standards Australia New Zealand",
+      "standards": ["Food Standards Code", "Novel Foods", "Health Claims"],
+      "codes": ["Standard 1.1.1", "Standard 1.2.1"]
+    }
+  },
+  "quality_parameters": {
+    "purity": {
+      "units": ["%", "w/w", "w/v"],
+      "typical_range": "95-99.9%",
+      "test_methods": ["HPLC", "GC", "titration"]
+    },
+    "moisture_content": {
+      "units": ["%", "w/w"],
+      "typical_range": "0.1-15%",
+      "test_methods": ["Karl Fischer", "LOD", "NIR"]
+    },
+    "particle_size": {
+      "units": ["μm", "mesh", "mm", "nm"],
+      "typical_range": "1-1000 μm",
+      "test_methods": ["laser diffraction", "sieve analysis", "microscopy"]
+    },
+    "microbiological": {
+      "parameters": ["total plate count", "yeast", "mold", "E.coli", "Salmonella", "Listeria"],
+      "units": ["CFU/g", "MPN/g", "presence/absence"],
+      "test_methods": ["plate count", "PCR", "ELISA"]
+    },
+    "physical_properties": {
+      "parameters": ["density", "viscosity", "pH", "color", "taste", "odor"],
+      "units": ["g/cm³", "cP", "pH units", "L*a*b*"],
+      "test_methods": ["densitometry", "viscometry", "pH meter", "colorimetry"]
+    },
+    "nutritional": {
+      "parameters": ["protein", "fat", "carbohydrates", "fiber", "sodium", "vitamins", "minerals"],
+      "units": ["g/100g", "mg/100g", "μg/100g", "IU/100g"],
+      "test_methods": ["Kjeldahl", "Soxhlet", "HPLC", "AAS", "ICP"]
+    }
+  },
+  "processing_parameters": {
+    "temperature": {
+      "units": ["°C", "°F", "K"],
+      "typical_ranges": {
+        "ambient": "20-25°C",
+        "refrigerated": "2-8°C",
+        "frozen": "-18 to -20°C",
+        "pasteurization": "72-85°C",
+        "sterilization": "121-134°C"
+      }
+    },
+    "pressure": {
+      "units": ["bar", "PSI", "Pa", "MPa"],
+      "typical_ranges": {
+        "atmospheric": "1 bar",
+        "high_pressure": "100-1000 MPa",
+        "vacuum": "0.01-0.1 bar"
+      }
+    },
+    "time": {
+      "units": ["seconds", "minutes", "hours", "days"],
+      "process_types": {
+        "mixing": "5-30 minutes",
+        "fermentation": "6-72 hours",
+        "drying": "2-24 hours",
+        "storage": "days to years"
+      }
+    },
+    "ph": {
+      "units": ["pH units"],
+      "ranges": {
+        "acidic": "1-6.9",
+        "neutral": "7.0",
+        "alkaline": "7.1-14"
+      }
+    }
+  },
+  "flow_chart_elements": {
+    "start_symbols": ["oval", "rounded rectangle", "start", "begin"],
+    "process_symbols": ["rectangle", "box", "process step"],
+    "decision_symbols": ["diamond", "rhombus", "decision point"],
+    "connector_symbols": ["circle", "small circle", "connector"],
+    "data_symbols": ["parallelogram", "input/output", "data"],
+    "terminator_symbols": ["oval", "rounded rectangle", "end", "stop"],
+    "document_symbols": ["document shape", "wavy bottom", "report"],
+    "storage_symbols": ["cylinder", "drum", "storage", "database"]
+  }
+} 

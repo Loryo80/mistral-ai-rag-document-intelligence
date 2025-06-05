@@ -1,0 +1,280 @@
+{
+  "entity_types": {
+    "PRODUCT": {
+      "description": "Product names, trade names, chemical names, and brand names",
+      "patterns": [
+        "GLYCOLYS®?",
+        "PEARLITOL",
+        "LYCATAB",
+        "®\\s*\\w+",
+        "\\b[A-Z]{2,}\\s*[A-Z0-9-]*\\b",
+        "\\b[A-Z][a-z]+\\s*[A-Z]{2,}\\b"
+      ],
+      "context_keywords": ["product", "brand", "trade name", "chemical name", "ingredient"]
+    },
+    "CHEMICAL_COMPOUND": {
+      "description": "Chemical compounds, formulations, and molecular structures",
+      "patterns": [
+        "sodium\\s+starch\\s+glycolate",
+        "\\b[A-Z][a-z]+\\s+[a-z]+\\s+[a-z]+\\b",
+        "\\b[A-Z]\\d+H\\d+[A-Z]\\d*\\b",
+        "\\bCAS\\s*[:\\-]?\\s*\\d{1,7}-\\d{2}-\\d\\b",
+        "\\bEINECS?\\s*[:\\-]?\\s*\\d{3}-\\d{3}-\\d\\b"
+      ],
+      "context_keywords": ["chemical", "compound", "formula", "CAS", "EINECS", "molecular"]
+    },
+    "SPECIFICATION": {
+      "description": "Technical specifications, properties, and parameters",
+      "patterns": [
+        "\\b\\d+(?:\\.\\d+)?\\s*%\\b",
+        "\\b\\d+(?:\\.\\d+)?\\s*(?:mg|g|kg|µm|mm|cm)\\b",
+        "\\bpH\\s*[:\\-]?\\s*\\d+(?:\\.\\d+)?\\b",
+        "\\b\\d+(?:\\.\\d+)?\\s*°C\\b",
+        "\\b\\d+(?:\\.\\d+)?\\s*(?:kPa|MPa|bar|psi)\\b",
+        "\\b\\d+(?:\\.\\d+)?\\s*(?:cP|mPa\\.s)\\b"
+      ],
+      "context_keywords": ["specification", "property", "parameter", "value", "limit", "range"]
+    },
+    "APPLICATION": {
+      "description": "Applications, uses, and intended purposes",
+      "patterns": [
+        "disintegrant",
+        "dissolution\\s+aid",
+        "pharmaceutical",
+        "agricultural\\s+applications",
+        "food\\s+applications",
+        "tablet\\s+disintegration",
+        "excipient",
+        "binding\\s+agent",
+        "flow\\s+aid"
+      ],
+      "context_keywords": ["application", "use", "purpose", "function", "role"]
+    },
+    "SAFETY_INFO": {
+      "description": "Safety information, hazards, and precautions",
+      "patterns": [
+        "\\bGHS\\d+\\b",
+        "\\bH\\d{3}\\b",
+        "\\bP\\d{3}\\b",
+        "\\bEUH\\d{3}\\b",
+        "skin\\s+irritation",
+        "eye\\s+irritation",
+        "respiratory\\s+sensitization",
+        "\\bLD50\\b",
+        "\\bLC50\\b"
+      ],
+      "context_keywords": ["safety", "hazard", "precaution", "warning", "risk", "toxicity"]
+    },
+    "REGULATORY": {
+      "description": "Regulatory information, approvals, and compliance",
+      "patterns": [
+        "\\bFDA\\b",
+        "\\bEMA\\b",
+        "\\bEFSA\\b",
+        "\\bUSP\\b",
+        "\\bEP\\b",
+        "\\bJP\\b",
+        "\\bGMP\\b",
+        "\\bHACCP\\b",
+        "\\bISO\\s*\\d+\\b",
+        "\\bEN\\s*\\d+\\b"
+      ],
+      "context_keywords": ["regulatory", "approval", "compliance", "standard", "certification"]
+    },
+    "STORAGE_CONDITION": {
+      "description": "Storage and handling conditions",
+      "patterns": [
+        "store\\s+at\\s+\\d+(?:-\\d+)?\\s*°C",
+        "relative\\s+humidity\\s+\\d+(?:-\\d+)?\\s*%",
+        "shelf\\s+life\\s+\\d+\\s+(?:months?|years?)",
+        "keep\\s+(?:dry|cool|away\\s+from)",
+        "protect\\s+from\\s+(?:light|moisture|heat)"
+      ],
+      "context_keywords": ["storage", "handling", "condition", "temperature", "humidity"]
+    },
+    "COMPANY_INFO": {
+      "description": "Company names, addresses, and contact information",
+      "patterns": [
+        "Roquette",
+        "\\b[A-Z][a-z]+\\s+(?:GmbH|Ltd|Inc|Corp|SA|SAS|BV)\\b",
+        "\\b\\d{5}\\s+[A-Z][a-z]+\\b",
+        "\\b[a-z]+@[a-z]+\\.[a-z]{2,}\\b",
+        "\\+?\\d{1,3}[-\\s]?\\d{1,4}[-\\s]?\\d{4,}\\b"
+      ],
+      "context_keywords": ["company", "manufacturer", "supplier", "contact", "address"]
+    }
+  },
+  "relationship_types": {
+    "HAS_SPECIFICATION": {
+      "description": "Product has a specific technical specification",
+      "source_types": ["PRODUCT"],
+      "target_types": ["SPECIFICATION"]
+    },
+    "HAS_APPLICATION": {
+      "description": "Product has a specific application or use",
+      "source_types": ["PRODUCT"],
+      "target_types": ["APPLICATION"]
+    },
+    "CONTAINS_COMPOUND": {
+      "description": "Product contains a chemical compound",
+      "source_types": ["PRODUCT"],
+      "target_types": ["CHEMICAL_COMPOUND"]
+    },
+    "HAS_SAFETY_INFO": {
+      "description": "Product has associated safety information",
+      "source_types": ["PRODUCT"],
+      "target_types": ["SAFETY_INFO"]
+    },
+    "REQUIRES_STORAGE": {
+      "description": "Product requires specific storage conditions",
+      "source_types": ["PRODUCT"],
+      "target_types": ["STORAGE_CONDITION"]
+    },
+    "REGULATED_BY": {
+      "description": "Product is regulated by specific authorities",
+      "source_types": ["PRODUCT"],
+      "target_types": ["REGULATORY"]
+    },
+    "MANUFACTURED_BY": {
+      "description": "Product is manufactured by a company",
+      "source_types": ["PRODUCT"],
+      "target_types": ["COMPANY_INFO"]
+    },
+    "SPECIFIED_AS": {
+      "description": "Chemical compound is specified with certain parameters",
+      "source_types": ["CHEMICAL_COMPOUND"],
+      "target_types": ["SPECIFICATION"]
+    }
+  },
+  "validation_rules": {
+    "SPECIFICATION": {
+      "min_value": 0,
+      "max_value": 1000000,
+      "required_unit": true,
+      "pattern": "\\d+(?:\\.\\d+)?\\s*\\w+"
+    },
+    "CHEMICAL_COMPOUND": {
+      "min_length": 3,
+      "max_length": 100,
+      "forbidden_chars": ["@", "#", "$"]
+    },
+    "PRODUCT": {
+      "min_length": 2,
+      "max_length": 50,
+      "must_contain_uppercase": true
+    }
+  },
+  "normalization_rules": {
+    "PRODUCT": {
+      "remove_symbols": ["®", "™", "©"],
+      "standardize_case": "title",
+      "remove_extra_whitespace": true
+    },
+    "CHEMICAL_COMPOUND": {
+      "standardize_case": "lower",
+      "normalize_spaces": true,
+      "expand_abbreviations": {
+        "Na": "sodium",
+        "K": "potassium",
+        "Ca": "calcium"
+      }
+    },
+    "SPECIFICATION": {
+      "normalize_units": {
+        "percent": "%",
+        "degree celsius": "°C",
+        "degrees celsius": "°C",
+        "micrometer": "µm",
+        "micron": "µm"
+      }
+    }
+  },
+  "document_types": {
+    "SDS": {
+      "name": "Safety Data Sheet",
+      "key_sections": [
+        "Product identification",
+        "Hazards identification", 
+        "Composition/information on ingredients",
+        "First aid measures",
+        "Fire fighting measures",
+        "Accidental release measures",
+        "Handling and storage",
+        "Exposure controls/personal protection",
+        "Physical and chemical properties",
+        "Stability and reactivity",
+        "Toxicological information",
+        "Ecological information",
+        "Disposal considerations",
+        "Transport information",
+        "Regulatory information",
+        "Other information"
+      ],
+      "patterns": ["Safety Data Sheet", "SDS", "MSDS", "Material Safety"]
+    },
+    "TECHNICAL_DATASHEET": {
+      "name": "Technical Datasheet",
+      "key_sections": [
+        "Product overview",
+        "Technical specifications",
+        "Applications",
+        "Storage conditions",
+        "Regulatory information",
+        "Contact information"
+      ],
+      "patterns": ["Technical Datasheet", "Product Information", "Technical Data"]
+    },
+    "PRODUCT_SPECIFICATION": {
+      "name": "Product Specification",
+      "key_sections": [
+        "General information",
+        "Physical properties",
+        "Chemical properties",
+        "Quality parameters",
+        "Testing methods",
+        "Packaging information"
+      ],
+      "patterns": ["Product Specification", "PSPE", "Specification Sheet"]
+    },
+    "BROCHURE": {
+      "name": "Product Brochure",
+      "key_sections": [
+        "Product range",
+        "Applications",
+        "Benefits",
+        "Technical information",
+        "Contact information"
+      ],
+      "patterns": ["Brochure", "Product Range", "Product Portfolio"]
+    }
+  },
+  "extraction_priorities": {
+    "SDS": [
+      "PRODUCT",
+      "CHEMICAL_COMPOUND", 
+      "SAFETY_INFO",
+      "STORAGE_CONDITION",
+      "REGULATORY"
+    ],
+    "TECHNICAL_DATASHEET": [
+      "PRODUCT",
+      "APPLICATION",
+      "SPECIFICATION",
+      "STORAGE_CONDITION",
+      "COMPANY_INFO"
+    ],
+    "PRODUCT_SPECIFICATION": [
+      "PRODUCT",
+      "SPECIFICATION",
+      "CHEMICAL_COMPOUND",
+      "REGULATORY",
+      "APPLICATION"
+    ],
+    "BROCHURE": [
+      "PRODUCT",
+      "APPLICATION",
+      "COMPANY_INFO",
+      "SPECIFICATION"
+    ]
+  }
+} 

@@ -1,0 +1,1 @@
+"""Storage module for LegalDoc AI."""

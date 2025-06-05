@@ -1,0 +1,197 @@
+{
+  "entity_types": {
+    "CROP": {
+      "description": "Crops, plants, and agricultural species",
+      "examples": [
+        "corn", "maize", "zea mays", "wheat", "triticum aestivum", "tomato", "solanum lycopersicum",
+        "soybean", "glycine max", "rice", "oryza sativa", "cotton", "gossypium", "barley", "hordeum vulgare",
+        "potato", "solanum tuberosum", "sugarcane", "saccharum officinarum", "canola", "brassica napus",
+        "sunflower", "helianthus annuus", "alfalfa", "medicago sativa", "lettuce", "lactuca sativa"
+      ],
+      "patterns": [
+        "(?i)\\b(?:corn|maize|wheat|tomato|soybean|rice|cotton|barley|potato|canola|sunflower)\\b",
+        "(?i)\\b(?:zea mays|triticum|solanum|glycine max|oryza sativa|gossypium|hordeum)\\b"
+      ]
+    },
+    "PRODUCT": {
+      "description": "Agricultural products, fertilizers, pesticides, biostimulants",
+      "examples": [
+        "NPK 20-20-20", "urea", "potassium chloride", "glyphosate", "2,4-D", "atrazine",
+        "GLYCOLYS", "mycorrhizae", "bacillus subtilis", "trichoderma", "humic acid",
+        "calcium nitrate", "magnesium sulfate", "iron chelate", "zinc sulfate"
+      ],
+      "patterns": [
+        "(?i)\\b(?:NPK|fertilizer|pesticide|herbicide|fungicide|insecticide|biostimulant)\\b",
+        "(?i)\\b[A-Z][A-Z0-9]{3,}\\b",
+        "(?i)\\b(?:urea|glyphosate|atrazine|2,4-D)\\b"
+      ]
+    },
+    "NUTRIENT": {
+      "description": "Plant nutrients and elements",
+      "examples": [
+        "nitrogen", "N", "phosphorus", "P", "potassium", "K", "calcium", "Ca", "magnesium", "Mg",
+        "sulfur", "S", "iron", "Fe", "manganese", "Mn", "zinc", "Zn", "copper", "Cu",
+        "boron", "B", "molybdenum", "Mo", "chlorine", "Cl", "NPK", "micronutrient", "macronutrient"
+      ],
+      "patterns": [
+        "(?i)\\b(?:nitrogen|phosphorus|potassium|calcium|magnesium|sulfur)\\b",
+        "(?i)\\b(?:iron|manganese|zinc|copper|boron|molybdenum|chlorine)\\b",
+        "(?i)\\b(?:NPK|micronutrient|macronutrient)\\b"
+      ]
+    },
+    "ORGANISM": {
+      "description": "Beneficial organisms, pests, diseases, weeds",
+      "examples": [
+        "bacillus subtilis", "rhizobium", "trichoderma harzianum", "mycorrhizae", "pseudomonas",
+        "aphid", "aphids", "spider mite", "whitefly", "thrips", "nematode", "fusarium",
+        "pythium", "rhizoctonia", "botrytis", "powdery mildew", "rust", "blight",
+        "pigweed", "waterhemp", "palmer amaranth", "kochia", "marestail"
+      ],
+      "patterns": [
+        "(?i)\\b(?:bacillus|rhizobium|trichoderma|mycorrhizae|pseudomonas)\\b",
+        "(?i)\\b(?:aphid|mite|whitefly|thrips|nematode)\\b",
+        "(?i)\\b(?:fusarium|pythium|rhizoctonia|botrytis|mildew|rust|blight)\\b"
+      ]
+    },
+    "CONDITION": {
+      "description": "Environmental and soil conditions",
+      "examples": [
+        "pH 6.5", "alkaline soil", "acidic soil", "sandy loam", "clay soil", "drought stress",
+        "salinity", "waterlogged", "well-drained", "organic matter", "cation exchange capacity",
+        "field capacity", "wilting point", "soil temperature", "air temperature", "humidity"
+      ],
+      "patterns": [
+        "(?i)\\bpH\\s*\\d+(?:\\.\\d+)?\\b",
+        "(?i)\\b(?:alkaline|acidic|sandy|clay|loam)\\s*soil\\b",
+        "(?i)\\b(?:drought|salinity|waterlogged|well-drained)\\b"
+      ]
+    },
+    "METRIC": {
+      "description": "Measurements, yields, and performance indicators",
+      "examples": [
+        "yield increase", "percent increase", "kg/ha", "tonnes per hectare", "bushels per acre",
+        "ppm", "mg/kg", "L/ha", "mL/100L", "g/L", "percent emergence", "germination rate",
+        "plant height", "root length", "biomass", "dry weight", "fresh weight"
+      ],
+      "patterns": [
+        "(?i)\\b(?:yield|increase|decrease|improvement)\\b",
+        "(?i)\\b\\d+(?:\\.\\d+)?\\s*(?:kg/ha|t/ha|bu/ac|ppm|mg/kg|L/ha|mL/100L|g/L|%)\\b",
+        "(?i)\\b(?:emergence|germination|height|length|biomass|weight)\\b"
+      ]
+    },
+    "METHOD": {
+      "description": "Application methods and techniques",
+      "examples": [
+        "foliar application", "soil application", "seed treatment", "fertigation", "drip irrigation",
+        "broadcast application", "banded application", "in-furrow", "pre-emergence", "post-emergence",
+        "sidedress", "topdress", "injection", "spray", "granular application"
+      ],
+      "patterns": [
+        "(?i)\\b(?:foliar|soil|seed)\\s*(?:application|treatment)\\b",
+        "(?i)\\b(?:fertigation|irrigation|broadcast|banded|in-furrow)\\b",
+        "(?i)\\b(?:pre-emergence|post-emergence|sidedress|topdress)\\b"
+      ]
+    },
+    "TIMING": {
+      "description": "Growth stages and application timing",
+      "examples": [
+        "V1 stage", "V6 stage", "R1 flowering", "R3 pod formation", "anthesis", "grain filling",
+        "vegetative stage", "reproductive stage", "emergence", "flowering", "fruit set",
+        "maturity", "harvest", "pre-plant", "at-plant", "early season", "mid-season", "late season"
+      ],
+      "patterns": [
+        "(?i)\\b[VR]\\d+\\s*(?:stage)?\\b",
+        "(?i)\\b(?:anthesis|flowering|emergence|maturity|harvest)\\b",
+        "(?i)\\b(?:vegetative|reproductive)\\s*stage\\b",
+        "(?i)\\b(?:pre-plant|at-plant|early|mid|late)\\s*season\\b"
+      ]
+    },
+    "SPECIFICATION": {
+      "description": "Technical specifications and parameters",
+      "examples": [
+        "concentration 10%", "purity 98%", "pH 7.0", "density 1.2 g/mL", "solubility",
+        "active ingredient", "formulation", "EC50", "LD50", "half-life", "persistence",
+        "mobility", "bioavailability", "uptake rate", "release rate"
+      ],
+      "patterns": [
+        "(?i)\\b(?:concentration|purity|pH|density|solubility)\\b",
+        "(?i)\\b(?:active ingredient|formulation|EC50|LD50|half-life)\\b",
+        "(?i)\\b\\d+(?:\\.\\d+)?\\s*(?:%|g/mL|mg/L|ppm)\\b"
+      ]
+    },
+    "SAFETY_HAZARD": {
+      "description": "Safety codes and hazard classifications",
+      "examples": [
+        "GHS01", "GHS02", "GHS03", "H200", "H300", "H400", "P101", "P200", "P300",
+        "toxic", "corrosive", "flammable", "oxidizing", "environmental hazard",
+        "skin irritant", "eye irritant", "respiratory sensitizer"
+      ],
+      "patterns": [
+        "(?i)\\bGHS\\d{2}\\b",
+        "(?i)\\b[HP]\\d{3}\\b",
+        "(?i)\\b(?:toxic|corrosive|flammable|oxidizing|irritant|sensitizer)\\b"
+      ]
+    }
+  },
+  "relationship_types": {
+    "INCREASES_YIELD": {
+      "description": "Product increases crop yield",
+      "patterns": ["increases?\\s+yield", "improves?\\s+yield", "enhances?\\s+productivity"]
+    },
+    "APPLIED_TO": {
+      "description": "Product applied to crop",
+      "patterns": ["applied\\s+to", "used\\s+on", "treats?"]
+    },
+    "EFFECTIVE_AGAINST": {
+      "description": "Product effective against pest/disease",
+      "patterns": ["effective\\s+against", "controls?", "suppresses?", "kills?"]
+    },
+    "COMPATIBLE_WITH": {
+      "description": "Products are compatible",
+      "patterns": ["compatible\\s+with", "tank\\s+mix", "can\\s+be\\s+mixed"]
+    },
+    "CONTAINS": {
+      "description": "Product contains ingredient",
+      "patterns": ["contains?", "includes?", "composed\\s+of", "active\\s+ingredient"]
+    },
+    "HAS_CONCENTRATION": {
+      "description": "Ingredient has specific concentration",
+      "patterns": ["\\d+(?:\\.\\d+)?\\s*%", "concentration\\s+of", "at\\s+\\d+\\s*%"]
+    },
+    "REQUIRES_CONDITION": {
+      "description": "Crop/product requires specific condition",
+      "patterns": ["requires?", "needs?", "optimal\\s+at", "performs\\s+best"]
+    },
+    "TARGETS_GROWTH_STAGE": {
+      "description": "Application targets specific growth stage",
+      "patterns": ["at\\s+[VR]\\d+", "during\\s+\\w+\\s+stage", "when\\s+\\w+"]
+    }
+  },
+  "unit_conversions": {
+    "weight_per_area": {
+      "kg/ha": 1.0,
+      "lb/ac": 1.121,
+      "g/m2": 10.0,
+      "oz/ac": 0.070
+    },
+    "volume_per_area": {
+      "L/ha": 1.0,
+      "gal/ac": 9.354,
+      "mL/m2": 10.0,
+      "fl oz/ac": 0.073
+    },
+    "concentration": {
+      "ppm": 1.0,
+      "mg/kg": 1.0,
+      "mg/L": 1.0,
+      "%": 10000.0,
+      "ppb": 0.001
+    }
+  },
+  "quality_thresholds": {
+    "entity_confidence": 0.7,
+    "relationship_confidence": 0.6,
+    "extraction_completeness": 0.8,
+    "agricultural_relevance": 0.75
+  }
+} 
