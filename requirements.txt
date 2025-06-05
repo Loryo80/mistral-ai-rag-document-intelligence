@@ -1,0 +1,45 @@
+# Core Dependencies
+streamlit>=1.28.0
+python-dotenv>=1.0.0
+supabase>=2.0.0
+openai>=1.0.0
+langchain>=0.1.0
+langchain-core>=0.1.0
+langchain-openai>=0.1.0
+langchain-text-splitters>=0.0.1
+pandas>=2.0.0
+numpy>=1.24.0
+pillow>=10.0.0
+pypdf2>=3.0.0
+pdf2image>=1.17.0
+pytesseract>=0.3.10
+psycopg2>=2.9.0
+scikit-learn>=1.3.0
+requests>=2.31.0
+pydantic>=2.0.0
+tiktoken>=0.5.0
+tenacity>=8.2.0
+plotly>=5.15.0
+altair>=5.0.0
+
+# Enhanced AI Processing
+mistralai>=1.0.0
+lightrag-hku>=1.0.0
+networkx>=3.1
+spacy>=3.7.0
+
+# SpaCy Language Model (install separately)
+# After installing requirements, run: python -m spacy download en_core_web_sm
+
+# Optional Dependencies (may require additional system dependencies)
+# graspologic>=0.3.0  # Requires Microsoft Visual C++ Build Tools on Windows
+# Note: If you want graph analysis features, install graspologic manually:
+# pip install graspologic (requires Microsoft Visual C++ Build Tools)
+
+# Development Dependencies
+pytest>=7.0.0
+pytest-mock>=3.10.0
+
+# Data Processing
+xlsxwriter>=3.0.0
+openpyxl>=3.1.0
